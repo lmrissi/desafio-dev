@@ -1,10 +1,6 @@
 from django.db import models
 from datetime import time
 
-class Document(models.Model):
-    title = models.CharField(max_length=255)
-    file = models.FileField(upload_to='documents', max_length=100, blank=True)
-
 class CnabManager(models.Manager):
     def save_parsed_cnab(self, pased_cnab_dict_list):
         for dict in pased_cnab_dict_list:
