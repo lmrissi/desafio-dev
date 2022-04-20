@@ -18,8 +18,10 @@ from django.urls import path
 from django.conf.urls import include, url
 
 from api import urls as api_urls
+from front_end import urls as front_end_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('api/', include(api_urls))
+    url('api/', include(api_urls)),
+    url('', include(front_end_urls)),
 ]
