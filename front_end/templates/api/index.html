@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Import Cnab File</title>
+    </head>
+    <body>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="file" name="file"/>
+            <input type="submit" name="submit" value="upload"/>
+        </form>
+        <script type="text/javascript" charset="utf-8" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    </body>
+</html>
