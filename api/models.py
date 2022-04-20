@@ -3,20 +3,17 @@ from datetime import time
 
 class CnabManager(models.Manager):
     def save_parsed_cnab(self, pased_cnab_dict_list):
-        for dict in pased_cnab_dict_list:
+        for dictionary in pased_cnab_dict_list:
+            print('model dict: ', dictionary)
             cnab = self.create(
-                type=dict['type'],
-                date=dict['date'],
-                value=dict['value']/100,
-                cpf=dict['cpf'],
-                card=dict['card'],
-                hour=time(
-                    dict['hour'][0:2],
-                    dict['hour'][2:4],
-                    dict['hour'][4:6],
-                ),
-                store_owner=dict['store_owner'],
-                store_name=dict['store_name']
+                type=dictionary['type'],
+                date=dictionary['date'],
+                value=dictionary['value'],
+                cpf=dictionary['cpf'],
+                card=dictionary['card'],
+                hour=dictionary['hour'],
+                store_owner=dictionary['store_owner'],
+                store_name=dictionary['store_name']
             )
         return cnab
 

@@ -1,6 +1,11 @@
+import datetime
+
 def parse_cnab_file (cnab_file):
-    dict_list = []
-    dict = dict(
+    date_format = '%Y%m%d'
+    cnab_dict_list = []
+    
+    for line in cnab_file:
+        cnab_dict = dict(
         type = '',
         date = '',
         value = '',
@@ -10,17 +15,19 @@ def parse_cnab_file (cnab_file):
         store_owner = '',
         store_name = '',
     )
+        cnab_dict['type'] = int(line[0:1].decode("utf-8"))
+        cnab_dict['date'] = datetime.datetime.strptime(line[1:9].decode("utf-8"), date_format).date()
+        cnab_dict['value'] = round(float(int(line[9:19].decode("utf-8"))/100),2)
+        cnab_dict['cpf'] = line[19:30].decode("utf-8") 
+        cnab_dict['card'] = line[30:42].decode("utf-8") 
+        cnab_dict['hour'] = datetime.time(
+            int(line[42:44].decode("utf-8")),
+            int(line[44:46].decode("utf-8")),
+            int(line[46:48].decode("utf-8"))
+        )
+        cnab_dict['store_owner'] = line[48:62].decode("utf-8") 
+        cnab_dict['store_name'] = line[62:81].strip().decode("utf-8")
+        cnab_dict_list.append(cnab_dict)
 
-    for line in cnab_file:
-        dict['type'] = line[0:1]
-        dict['date'] = line[1:2]
-        dict['value'] = line[11:20]
-        dict['cpf'] = line[21:31]
-        dict['card'] = line[32:43]
-        dict['hour'] = line[44:49]
-        dict['store_owner'] = line[50:63]
-        dict['store_name'] = line[64:82]
-        dict_list.append(dict)
-
-    return dict_list
+    return cnab_dict_list
     
