@@ -2,8 +2,8 @@ from django.db import models
 from datetime import time
 
 class CnabManager(models.Manager):
-    def save_parsed_cnab(self, pased_cnab_dict_list):
-        for dictionary in pased_cnab_dict_list:
+    def save_parsed_cnab(self, parsed_cnab_dict_list):
+        for dictionary in parsed_cnab_dict_list:
             cnab = self.create(
                 type=dictionary['type'],
                 date=dictionary['date'],

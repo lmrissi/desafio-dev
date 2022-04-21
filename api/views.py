@@ -14,8 +14,8 @@ class FileUploadView(APIView):
         if 'file' not in request.data:
             raise ParseError("Empty content")
         
-        pased_cnab_dict_list = parse_cnab_file(request.data['file'])
+        parsed_cnab_dict_list = parse_cnab_file(request.data['file'])
 
-        Cnab.objects.save_parsed_cnab(pased_cnab_dict_list)
+        Cnab.objects.save_parsed_cnab(parsed_cnab_dict_list)
 
         return Response(status=status.HTTP_201_CREATED)
