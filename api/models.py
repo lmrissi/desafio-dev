@@ -4,7 +4,6 @@ from datetime import time
 class CnabManager(models.Manager):
     def save_parsed_cnab(self, pased_cnab_dict_list):
         for dictionary in pased_cnab_dict_list:
-            print('model dict: ', dictionary)
             cnab = self.create(
                 type=dictionary['type'],
                 date=dictionary['date'],
