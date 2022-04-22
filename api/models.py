@@ -14,8 +14,7 @@ class Store(models.Model):
 
     def calculate_total(self):
         cnabs = Cnab.objects.filter(store=self)
-        for cnab in cnabs:
-            return sum(cnab.get_values())
+        return sum(cnab.get_values() for cnab in cnabs)
 
 class Cnab(models.Model):
     type = models.ForeignKey(CnabTransactions, to_field="type", on_delete=models.CASCADE)
