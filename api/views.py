@@ -12,10 +12,10 @@ class FileUploadView(APIView):
     parser_classes = [MultiPartParser, FormParser]
 
     def post(self, request, format=None):
-        if 'file' not in request.data:
+        if "file" not in request.data:
             raise ParseError("Empty content")
 
-        save_parsed_cnab(parse_cnab_file(request.data['file']))
+        save_parsed_cnab(parse_cnab_file(request.data["file"]))
 
         return Response(status=status.HTTP_201_CREATED)
 
@@ -23,7 +23,7 @@ class ListTransactionsView(APIView):
     def get(self, request):
         stores = Store.objects.all()
 
-        cnabs = Cnab.objects.all().order_by('date')
+        cnabs = Cnab.objects.all().order_by("date")
 
         result = list_cnabs_by_store(stores, cnabs)
         

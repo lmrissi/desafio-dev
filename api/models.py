@@ -26,7 +26,7 @@ class Cnab(models.Model):
     store = models.ForeignKey(Store, on_delete=models.CASCADE, null=True)
 
     def get_values(self):
-        if self.type.nature == 'Entrada':
+        if self.type.nature == "Entrada":
             return self.value
         else:
             return self.value*(-1)
