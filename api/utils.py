@@ -25,6 +25,8 @@ def parse_cnab_file (cnab_file):
     return cnab_dict_list
     
 def save_parsed_cnab(parsed_cnab_dict_list):
+    is_store_saved(parsed_cnab_dict_list)
+
     for cnab_dict in parsed_cnab_dict_list:
         cnab = Cnab()
 
@@ -46,8 +48,8 @@ def save_store(owner, name):
 
 def is_store_saved(parsed_cnab_dict_list):
     for cnab_dict in parsed_cnab_dict_list:
-        store_id = Store.objects.filter(name=cnab_dict['store_name'])
-        if not store_id:
+        store = Store.objects.filter(name=cnab_dict['store_name'])
+        if not store:
             save_store(
                 cnab_dict['store_owner'],
                 cnab_dict['store_name']
