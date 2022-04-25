@@ -1,4 +1,5 @@
 from audioop import avg
+from django.shortcuts import redirect
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
@@ -17,7 +18,7 @@ class FileUploadView(APIView):
 
         save_parsed_cnab(parse_cnab_file(request.data["file"]))
 
-        return Response(status=status.HTTP_201_CREATED)
+        return redirect('/list')
 
 class ListTransactionsView(APIView):
     def get(self, request):

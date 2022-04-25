@@ -3,7 +3,7 @@ from django.test import Client
 from rest_framework import status
 from rest_framework.exceptions import ParseError
 import unittest
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 from rest_framework.response import Response
 
 from api.views import ListTransactionsView
@@ -14,14 +14,15 @@ class TestFileUploadView(unittest.TestCase):
         self.client = Client()
         self.url = "/api/upload/"
 
-    def test_should_return_status_201_when_upload_file_correctly(self):
+    def test_should_redirect_and_return_status_302_when_upload_file_correctly(self):
         # Execution
         with open("documents/CNAB.txt", "r") as file:
             data = {"file": file}
             response = self.client.post(self.url, data)
 
-         # Assertion
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        # Assertion
+        self.assertEqual(response.status_code, status.HTTP_302_FOUND)
+        self.assertEqual(response.url, "/list")
 
     def test_should_return_ParseError_and_status_400_when_upload_without_file(self):
         # Execution
