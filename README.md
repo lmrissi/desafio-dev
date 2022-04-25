@@ -6,7 +6,7 @@
 docker-compose up --build
 ````
 
-Após executar este comando, docker realizará a instação das dependências do projeto, posteriormente criará uma instância do banco de dados, realizará as migrações e a importação dos dados default a partir de uma fixture. Quando todos os processos forem finalizados, o servidor estará disponível.
+Após executar este comando, o docker realizará a instação das dependências do projeto, posteriormente criará uma instância do banco de dados, realizará as migrações e a importação dos dados default a partir de uma fixture. Quando todos os processos forem finalizados, o servidor estará disponível.
 
 Para executar os testes da aplicação é necessário que o docker esteja rodando e executar os seguintes comandos em um novo terminal:
 ````
