@@ -2,7 +2,7 @@ from tkinter import CASCADE
 from django.db import models
 from datetime import time
 
-class CnabTransactions(models.Model):
+class CnabTransactionsTypes(models.Model):
     type = models.IntegerField(unique=True)
     description = models.CharField(max_length=30)
     nature = models.CharField(max_length=10)
@@ -17,7 +17,7 @@ class Store(models.Model):
         return sum(cnab.get_values() for cnab in cnabs)
 
 class Cnab(models.Model):
-    type = models.ForeignKey(CnabTransactions, to_field="type", on_delete=models.CASCADE)
+    type = models.ForeignKey(CnabTransactionsTypes, to_field="type", on_delete=models.CASCADE)
     date = models.DateField()
     value = models.DecimalField(max_digits=10, decimal_places=2)
     cpf = models.CharField(max_length=11)

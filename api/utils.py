@@ -1,5 +1,5 @@
 import datetime
-from .models import Cnab, CnabTransactions, Store
+from .models import Cnab, CnabTransactionsTypes, Store
 
 def parse_cnab_file (cnab_file):
     date_format = "%Y%m%d"
@@ -30,7 +30,7 @@ def save_parsed_cnab(parsed_cnab_dict_list):
     for cnab_dict in parsed_cnab_dict_list:
         cnab = Cnab()
 
-        cnab.type=CnabTransactions.objects.get(type=cnab_dict["type"])
+        cnab.type=CnabTransactionsTypes.objects.get(type=cnab_dict["type"])
         cnab.date=cnab_dict["date"]
         cnab.value=cnab_dict["value"]
         cnab.cpf=cnab_dict["cpf"]
