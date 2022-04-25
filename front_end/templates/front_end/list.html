@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div id="content">
+        <table class="demo">
+            <thead>
+                <tr id="cabecalho">
+                    <th>Nome da Loja</th>
+                    <th>Total Balanço</th>
+                    <th>Tipo da Transação</th>
+                    <th>Valor</th>
+                    <th>CPF</th>
+                    <th>Cartão</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                </tr>
+            </thead>
+            <tbody id="body">
+            </tbody>
+        </table>
+    </div>
+    <script src="{% static 'js/jquery-3.6.0.js' %}"></script>
+    <script src="{% static 'js/list.js' %}"></script>
+</body>
+</html>
