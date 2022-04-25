@@ -6,6 +6,8 @@
 docker-compose up --build
 ````
 
+Após executar este comando, docker realizará a instação das dependências do projeto, posteriormente criará uma instância do banco de dados, realizará as migrações e a importação dos dados default a partir de uma fixture. Quando todos os processos forem finalizados, o servidor estará disponível.
+
 # API
 
 A camada de API conta com dois enpoints:
