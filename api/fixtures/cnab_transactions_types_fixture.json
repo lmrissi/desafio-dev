@@ -1,0 +1,92 @@
+[
+    {
+      "model": "api.cnabtransactionstypes",
+      "pk": 1,
+      "fields": {
+        "type": "1",
+        "description": "Débito",
+        "nature": "Entrada",
+        "signal": "+"
+      }
+    },
+    {
+      "model": "api.cnabtransactionstypes",
+      "pk": 2,
+      "fields": {
+        "type": "2",
+        "description": "Boleto",
+        "nature": "Saída",
+        "signal": "-"
+      }
+    },
+    {
+        "model": "api.cnabtransactionstypes",
+        "pk": 3,
+        "fields": {
+          "type": "3",
+          "description": "Financiamento",
+          "nature": "Saída",
+          "signal": "-"
+        }
+    },
+    {
+        "model": "api.cnabtransactionstypes",
+        "pk": 4,
+        "fields": {
+          "type": "4",
+          "description": "Crédito",
+          "nature": "Entrada",
+          "signal": "+"
+        }
+    },
+    {
+        "model": "api.cnabtransactionstypes",
+        "pk": 5,
+        "fields": {
+          "type": "5",
+          "description": "Recebimento Empréstimo",
+          "nature": "Entrada",
+          "signal": "+"
+        }
+    },
+    {
+        "model": "api.cnabtransactionstypes",
+        "pk": 6,
+        "fields": {
+          "type": "6",
+          "description": "Vendas",
+          "nature": "Entrada",
+          "signal": "+"
+        }
+    },
+    {
+        "model": "api.cnabtransactionstypes",
+        "pk": 7,
+        "fields": {
+          "type": "7",
+          "description": "Recebimento TED",
+          "nature": "Entrada",
+          "signal": "+"
+        }
+    },
+    {
+        "model": "api.cnabtransactionstypes",
+        "pk": 8,
+        "fields": {
+          "type": "8",
+          "description": "Recebimento DOC",
+          "nature": "Entrada",
+          "signal": "+"
+        }
+    },
+    {
+        "model": "api.cnabtransactionstypes",
+        "pk": 9,
+        "fields": {
+          "type": "9",
+          "description": "Aluguel",
+          "nature": "Saída",
+          "signal": "-"
+        }
+    }
+  ]

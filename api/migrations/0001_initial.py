@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='CnabTransactions',
+            name='CnabTransactionsTypes',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('type', models.IntegerField(unique=True)),
@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                 ('card', models.CharField(max_length=12)),
                 ('hour', models.TimeField()),
                 ('store', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='api.store')),
-                ('type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.cnabtransactions', to_field='type')),
+                ('type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.cnabtransactionsTypes', to_field='type')),
             ],
         ),
     ]
